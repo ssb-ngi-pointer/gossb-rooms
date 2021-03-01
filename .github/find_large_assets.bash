@@ -1,4 +1,4 @@
-#!/usr/bin/bash
+#!/usr/bin/env bash
 
 # files in assets with more then 100kb and count them
 count=$(find web/assets -size '+100k' | wc -l)
