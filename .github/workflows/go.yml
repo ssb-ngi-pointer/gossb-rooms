@@ -13,6 +13,10 @@ jobs:
     steps:
     - uses: actions/checkout@v2
 
+    - name: "Find (too) big Web /assets/"
+      run: |
+        ${GITHUB_WORKSPACE}/.github/find_large_assets.bash
+
     - name: Set up Node (for interop testing)
       uses: actions/setup-node@v1
       with:
