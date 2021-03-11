@@ -55,8 +55,8 @@ type AllowListService interface {
 // AliasService manages alias handle registration and lookup
 type AliasService interface {
 
-	// GetByName returns the alias for that Name or an error
-	GetByName(context.Context, string) (Alias, error)
+	// Resolve returns all the relevant information for that alias or an error if it doesnt exist
+	Resolve(context.Context, string) (Alias, error)
 
 	// GetByID returns the alias for that ID or an error
 	GetByID(context.Context, int64) (Alias, error)
