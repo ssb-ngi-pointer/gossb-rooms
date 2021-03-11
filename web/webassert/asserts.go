@@ -32,7 +32,7 @@ func CSRFTokenPresent(t *testing.T, sel *goquery.Selection) {
 }
 
 type InputElement struct {
-	Name, Value, Type, Placeholder string
+	Tag, Name, Value, Type, Placeholder string
 }
 
 // InputsInForm checks a list of defined elements. It tries to find them by input[name=$name]
@@ -41,7 +41,7 @@ func InputsInForm(t *testing.T, form *goquery.Selection, elems []InputElement) {
 	a := assert.New(t)
 	for _, e := range elems {
 
-		inputSelector := form.Find(fmt.Sprintf("input[name=%s]", e.Name))
+		inputSelector := form.Find(fmt.Sprintf("%s[name=%s]", e.Tag, e.Name))
 		ok := a.Equal(1, inputSelector.Length(), "expected to find input with name %s", e.Name)
 		if !ok {
 			continue
