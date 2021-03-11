@@ -54,4 +54,11 @@ func TestConfirmation(t *testing.T) {
 
 	yes = confirmation.Verify(roomID, otherID)
 	r.False(yes, "should not be valid for this room but another feed")
+
+	// puncture the signature to emulate an invalid one
+	confirmation.Signature[0] = confirmation.Signature[0] ^ 1
+
+	yes = confirmation.Verify(roomID, userKeyPair.Feed)
+	r.False(yes, "should not be valid anymore")
+
 }
