@@ -31,13 +31,13 @@ func CSRFTokenPresent(t *testing.T, sel *goquery.Selection) {
 	a.Equal("hidden", tipe, "wrong type on csrf field")
 }
 
-type InputElement struct {
+type FormElement struct {
 	Tag, Name, Value, Type, Placeholder string
 }
 
-// InputsInForm checks a list of defined elements. It tries to find them by input[name=$name]
-// and then proceeds with asserting their value, type or placeholder (if the fields in InputElement are not "")
-func InputsInForm(t *testing.T, form *goquery.Selection, elems []InputElement) {
+// ElementsInForm checks a list of defined elements. It tries to find them by input[name=$name]
+// and then proceeds with asserting their value, type or placeholder (if the fields in FormElement are not "")
+func ElementsInForm(t *testing.T, form *goquery.Selection, elems []FormElement) {
 	a := assert.New(t)
 	for _, e := range elems {
 
