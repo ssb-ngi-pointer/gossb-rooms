@@ -12,6 +12,11 @@ import (
 	"github.com/ssb-ngi-pointer/go-ssb-room/web/router"
 	"github.com/stretchr/testify/assert"
 )
+/* TODO: 
+    * add a new test that makes sure that /translation/add only accepts POST 
+    * add a check inside the handler proper
+*/
+
 
 func TestNoticeAddLanguageIncludesAllFields(t *testing.T) {
     ts := newSession(t)
